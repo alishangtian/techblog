@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "「知乎」为什么 CSS 这么难学？"
+title: "为什么 CSS 这么难学？"
 subtitle: "Why I dislike CSS as a programming language"
 author: "墒田"
 header-img: "img/post-bg-css.jpg"
