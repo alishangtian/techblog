@@ -1,10 +1,10 @@
 # Site settings
-title: 毛小冰 Blog
-SEOTitle: 墒田的博客 | 墒田 Blog
+title: shangtian Blog
+SEOTitle: shangtian的博客 | shangtian Blog
 header-img: img/home-bg.jpg
 email: alishangtian@gmail.com
-description: "关于编程和生活 | 毛小冰，Java Lover，Software Engineer | 这里是 @毛小冰的个人博客，与你一起发现Java的世界。"
-keyword: "毛小冰, Alishangtian,Java,分布式,大数据,Kafka,RocketMq,Dubbo,Etcd,K8s,Service Mesh,Istio,江湖名：墒田, 小米, 阿里巴巴,alishangtian.com, 毛小冰的博客"
+description: "关于编程和生活 | shangtian，Java Lover，Software Engineer | 这里是 @shangtian的个人博客，与你一起发现Java的世界。"
+keyword: "shangtian, Alishangtian,Java,分布式,大数据,Kafka,RocketMq,Dubbo,Etcd,K8s,Service Mesh,Istio,江湖名：墒田, 小米, 阿里巴巴,alishangtian.com, shangtian的博客"
 url: "http://alishangtian.com"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -130,7 +130,7 @@ friends: [
         title: "yukon",
         href: "https://github.com/zhouxinyu"
     },{
-        title: "毛小冰",
+        title: "shangtian",
         href: "https://github.com/alishangtian"
     }
 ]
