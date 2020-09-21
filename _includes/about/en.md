@@ -1,4 +1,4 @@
-> 毛豆出生之后，一切才刚刚开始。
+> 一切才刚刚开始。
 
 Hi，我是shangtian，Java technologist ，Service Mesh初心者，[XIAOMI](https://www.mi.com/) 软件工程师。我曾被招募为阿里巴巴 · [高德](https://lbs.amap.com/)· 服务端工程师。
 
