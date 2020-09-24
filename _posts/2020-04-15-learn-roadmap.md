@@ -13,8 +13,6 @@ tags:
   - DevOps
 ---
 
-<!-- TOC -->autoauto- [技术学习路线图](#技术学习路线图)auto    - [前端学习路线图](#前端学习路线图)auto    - [后端学习路线图](#后端学习路线图)auto    - [DevOps 学习路线图](#devops-学习路线图)autoauto<!-- /TOC -->
-
 # 技术学习路线图
 <blockquote>
 成为一名Web开发者的学习路线图<br>
