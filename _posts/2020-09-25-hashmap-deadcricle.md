@@ -37,7 +37,7 @@ tags:
 
 ### HashMap的put方法实现
 
-1. 判断key是否存在
+***判断key是否存在***
 
 ```java
 public V put(K key, V value) {
@@ -63,7 +63,7 @@ public V put(K key, V value) {
 }
 ```
 
-2. 检查容量是否达到阈值threshold
+***检查容量是否达到阈值threshold***
 
 ```java
 void addEntry(int hash, K key, V value, int bucketIndex) {
@@ -77,7 +77,7 @@ void addEntry(int hash, K key, V value, int bucketIndex) {
 }
 ```
 
-3. 扩容实现
+***扩容实现***
 
 ```java
 void resize(int newCapacity) {
@@ -93,7 +93,7 @@ void resize(int newCapacity) {
 }
 ```
 
-这里会新建一个更大的数组，并通过transfer方法，移动元素。
+***这里会新建一个更大的数组，并通过transfer方法，移动元素。***
 
 ```java
 void transfer(Entry[] newTable, boolean rehash) {
@@ -113,7 +113,7 @@ void transfer(Entry[] newTable, boolean rehash) {
 }
 ```
 
-移动的逻辑也很清晰，遍历原来table中每个位置的链表，并对每个元素进行重新hash，在新的newTable找到归宿，并插入。
+***移动的逻辑也很清晰，遍历原来table中每个位置的链表，并对每个元素进行重新hash，在新的newTable找到归宿，并插入。***
 
 ### 案例分析
 
@@ -149,23 +149,23 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 **线程1继续执行，很不巧，a、b、c节点rehash之后又是在同一个位置7，开始移动节点**
 
-1. 移动节点a
+    1. 移动节点a
 
 ![img](/img/hash-3.png)
 
-2. 移动节点b
+    2. 移动节点b
 
 ![img](/img/hash-4.png)
 
-3. 注意，这里的顺序是反过来的，继续移动节点c
+    3. 注意，这里的顺序是反过来的，继续移动节点c
 
 ![img](/img/hash-5.png)
 
-4. 这个时候 线程1 的时间片用完，内部的table还没有设置成新的newTable， 线程2 开始执行，这时内部的引用关系如下
+    4. 这个时候 线程1 的时间片用完，内部的table还没有设置成新的newTable， 线程2 开始执行，这时内部的引用关系如下
 
 ![img](/img/hash-6.png)
 
-5. 这时，在 线程2 中，变量e指向节点a，变量next指向节点b，开始执行循环体的剩余逻辑
+    5. 这时，在 线程2 中，变量e指向节点a，变量next指向节点b，开始执行循环体的剩余逻辑
 
 ```java
 Entry<K,V> next = e.next;
@@ -175,15 +175,15 @@ newTable[i] = e;
 e = next;
 ```
 
-6. 执行之后的引用关系如下图
+    6. 执行之后的引用关系如下图
 
 ![img](/img/hash-7.png)
 
-7. 执行后，变量e指向节点b，因为e不是null，则继续执行循环体，执行后的引用关系
+    7. 执行后，变量e指向节点b，因为e不是null，则继续执行循环体，执行后的引用关系
 
 ![img](/img/hash-8.png)
 
-8. 变量e又重新指回节点a，只能继续执行循环体，这里仔细分析下：
+    8. 变量e又重新指回节点a，只能继续执行循环体，这里仔细分析下：
 
     - 执行完Entry<K,V> next = e.next;，目前节点a没有next，所以变量next指向null；
     - e.next = newTable[i]; 其中 newTable[i] 指向节点b，那就是把a的next指向了节点b，这样a和b就相互引用了，形成了一个环；
